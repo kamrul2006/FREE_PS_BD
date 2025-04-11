@@ -3,6 +3,7 @@ import ii from "../assets/FeatureImage/ii.jpg"
 import iii from "../assets/FeatureImage/iii.jpg"
 
 export default function FeaturedStories() {
+
     const stories = [
         {
             id: 1,
@@ -10,12 +11,14 @@ export default function FeaturedStories() {
             excerpt: "A 9-year-old child in Gaza writes a poem as bombs fall outside her window. Her words became a symbol of strength and hope.",
             image: i,
         },
+
         {
             id: 2,
             title: "The Last Olive Tree",
             excerpt: "Generations grew under its shade until bulldozers came. A story of resistance, loss, and identity rooted in soil.",
             image: ii,
         },
+
         {
             id: 3,
             title: "Voices Through the Rubble",
@@ -23,6 +26,7 @@ export default function FeaturedStories() {
             image: iii,
         },
     ];
+
 
     return (
         <section className="bg-black text-white py-20 px-6">
