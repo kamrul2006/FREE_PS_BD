@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import NavBar from '../Fixed_Components/NavBar'
+import Footer from '../Fixed_Components/Footer'
+import { Outlet } from 'react-router-dom'
 
 export default class MainLayout extends Component {
     render() {
@@ -7,9 +9,11 @@ export default class MainLayout extends Component {
             <div>
                 <NavBar />
 
-                 <p className='mt-10'>hello</p>
+                <div className='max-w-7xl mx-auto'>
+                    <Outlet />
+                </div>
 
-
+                <Footer />
 
             </div>
         )

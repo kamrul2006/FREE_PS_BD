@@ -10,12 +10,21 @@ import {
 } from "react-router-dom";
 import NavBar from './Fixed_Components/NavBar';
 import MainLayout from './Layouts/MainLayout';
+import ErrorPage from './Fixed_Components/ErrorPage';
+import HomeLayouts from './Layouts/HomeLayouts';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout/>,
+    element: <MainLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <HomeLayouts />
+      }
+    ]
   },
 ]);
 
