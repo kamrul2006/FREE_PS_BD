@@ -2,17 +2,18 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 
-
 // for react router--------------------------
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import NavBar from './Fixed_Components/NavBar';
+// ---------------------------------------------
+
 import MainLayout from './Layouts/MainLayout';
 import ErrorPage from './Fixed_Components/ErrorPage';
 import HomeLayouts from './Layouts/HomeLayouts';
 import AuthProvider from './Providers/AuthProvider';
+import SignUpSection from './Auth/SignUp';
 
 
 const router = createBrowserRouter([
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomeLayouts />
-      }
+      },
+      {
+        path: "/Signup",
+        element: <SignUpSection />
+      },
     ]
   },
 ]);
