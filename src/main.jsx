@@ -12,6 +12,7 @@ import NavBar from './Fixed_Components/NavBar';
 import MainLayout from './Layouts/MainLayout';
 import ErrorPage from './Fixed_Components/ErrorPage';
 import HomeLayouts from './Layouts/HomeLayouts';
+import AuthProvider from './Providers/AuthProvider';
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,14 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )
+
+{/* <StrictMode>
+<AuthProvider>
+  <RouterProvider router={router}></RouterProvider>
+</AuthProvider>
+</StrictMode>, */}
