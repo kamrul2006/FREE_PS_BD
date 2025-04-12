@@ -36,4 +36,5 @@ const PrivetRout = ({ children }) => {
     );
 };
 
+
 export default PrivetRout;
