@@ -30,7 +30,6 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, provider)
     }
 
-
     //-----------------------user sign out----------------
     const UserSignOut = () => {
         signOut(auth)
@@ -63,7 +62,6 @@ const AuthProvider = ({ children }) => {
     //-----------------------------------forget passWord------------------------
 
     const [pEmail, setPEmail] = useState(null)
-
 
 
     //------------value here--------------------------
