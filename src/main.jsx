@@ -16,6 +16,7 @@ import AuthProvider from './Providers/AuthProvider';
 import SignUpSection from './Auth/SignUp';
 import LoginPage from './Auth/Login';
 import AboutUs from './About us/AboutUS';
+import ContactUs from './Contuct us/ContactUs';
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <AboutUs />
+      },
+      {
+        path: "/contact",
+        element: <ContactUs />
       },
     ]
   },
