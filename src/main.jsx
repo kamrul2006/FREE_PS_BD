@@ -15,6 +15,7 @@ import HomeLayouts from './Layouts/HomeLayouts';
 import AuthProvider from './Providers/AuthProvider';
 import SignUpSection from './Auth/SignUp';
 import LoginPage from './Auth/Login';
+import AboutUs from './About us/AboutUS';
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: "/Login",
         element: <LoginPage />
+      },
+      {
+        path: "/about",
+        element: <AboutUs />
       },
     ]
   },
