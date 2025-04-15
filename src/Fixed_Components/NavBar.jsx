@@ -41,10 +41,10 @@ export default function Navbar() {
               </div>
             ) : (
               <NavLink
-                to="/signup"
+                to="/Login"
                 className="bg-amber-400 text-center hover:bg-amber-600 px-4 py-1 rounded-2xl text-black"
               >
-                Signup
+                Login
               </NavLink>
             )}
           </div>
@@ -78,11 +78,11 @@ export default function Navbar() {
 
             {!user && (
               <NavLink
-                to="/signup"
+                to="/Login"
                 className="bg-amber-400 text-center hover:bg-amber-600 p-2 rounded-2xl text-black"
                 onClick={toggleMenu}
               >
-                Signup
+                Login
               </NavLink>
             )}
           </div>

@@ -1,163 +1,146 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { FaAnglesLeft } from "react-icons/fa6";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
-import Footer from "../Components/Footer";
-import visa from '../assets/visa.gif'
 import { useTypewriter } from "react-simple-typewriter";
 
-
 const LoginPage = () => {
-
   const [text] = useTypewriter({
-    words: ['K-Visas'],
-    loop: true
-  })
-
-
-  useEffect(() => {
-    document.title = "K-Visa || Log in"
-  }, [])
+    words: ["Free-Ps-BD"],
+    loop: true,
+  });
 
   const emailRef = useRef();
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const location = useLocation()
-  // console.info(location)
+  const [error, setError] = useState(null);
+  const [show, setShow] = useState(false);
 
-  const [error, setError] = useState(null)
+  const { LoginUser, setUser, GoogleLogin } = useContext(AuthContext);
 
-  const [show, setShow] = useState(false)
-  const ShowPassWord = (e) => {
+  useEffect(() => {
+    document.title = "Free-Ps-BD || Log in";
+  }, []);
+
+  const handleShowPassword = (e) => {
     e.preventDefault();
-    setShow(!show)
-  }
+    setShow(!show);
+  };
 
-
-  const navigate = useNavigate()
-
-  //---------- Context use----------------------
-
-  const { LoginUser, setUser, GoogleLogin } = useContext(AuthContext)
-
-  const HandleLogin = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    const Email = e.target.email.value
-    const Password = e.target.password.value
+    const Email = e.target.email.value;
+    const Password = e.target.password.value;
 
-    //-------------------------login with email and password--------------------
     LoginUser(Email, Password)
       .then((userCredential) => {
         const user = userCredential.user;
-        setUser(user)
-        navigate(location.state ? location.state : '/')
+        setUser(user);
+        navigate(location.state ? location.state : "/");
       })
-      .catch((error) => {
-        // console.log(error)
-        if (error) { setError('Password or Email is invalid..!') }
+      .catch(() => {
+        setError("Password or Email is invalid..!");
       });
-  }
+  };
 
-  //------------------- HAndle google--------------
-  const HandleGoogleLogin = () => {
+  const handleGoogleLogin = () => {
     GoogleLogin()
       .then((res) => {
-        // console.log(res.user)
-        setUser(res.user)
-        navigate(location.state ? location.state : '/')
+        setUser(res.user);
+        navigate(location.state ? location.state : "/");
       })
-      .catch(err => {
-        // console.log(err);
-        setUser(null)
-      })
-  }
-
+      .catch(() => {
+        setUser(null);
+      });
+  };
 
   return (
-    <div>
-      <div className="bg-base-content w-full flex items-center justify-evenly mb-10 ">
-        <div className='flex items-center px-5 w-1/2'>
-          <img src={visa} className="md:w-20 w-10 rounded-xl" />
-          <a className="md:text-3xl text-white text-xl font-serif font-semibold italic ">  <span>{text}</span></a>
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-gray-900 via-black to-gray-900 px-4">
+      <div className="bg-white rounded-lg shadow-xl w-full max-w-md p-8">
+        <h2 className="text-2xl font-bold text-center text-indigo-700 mb-6">
+          Welcome Back to <span className="text-green-600">{text}</span>
+        </h2>
 
-        <Link to={'/'} className=" mx-auto">
-          <button className="btn btn-sm md:btn-md btn-outline btn-success mx-10 my-4 md:px-5 md:text-xl "><FaAnglesLeft />  Go Back to Home</button>
-        </Link>
-      </div>
+        <form onSubmit={handleLogin} className="space-y-6">
+          {/* Email Field */}
+          <div>
+            <label htmlFor="email" className="block text-sm mb-1 font-medium text-gray-700">
+              Email Address
+            </label>
+            <input
+              type="email"
+              ref={emailRef}
+              id="email"
+              name="email"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
 
-      <div className="min-h-screen flex items-center justify-center ">
-        <div className="p-8 rounded-lg  max-w-md w-full">
-          <h2 className="text-3xl font-bold text-center text-indigo-700 mb-6">Welcome Back</h2>
-
-          <form onSubmit={HandleLogin} className="space-y-6">
-            {/* Email Field */}
-            <div className="relative">
-              <label className="text-sm my-1">
-                Email Address
-              </label>
-
-              <input
-                type="email"
-                ref={emailRef}
-                id="email"
-                name="email"
-                className="w-full px-4 py-2 border border-white-300 rounded-lg focus:outline-none focus:border-blue-500 peer"
-                placeholder="Enter Your Email. "
-                required
-              />
-            </div>
-
-            {/* Password Field */}
-            <div className="relative">
-              <label className="my-1 text-sm">
-                Password
-              </label>
-
-              <input
-                type={show ? "text" : "password"}
-                id="password"
-                name="password"
-                className="w-full px-4 py-2 border border-white-300 rounded-lg focus:outline-none focus:border-blue-500 peer"
-                placeholder="Enter Password. "
-                required
-              />
-
-              {/* --------------------------Forgot password section---------------------- */}
-
-              <label className=" text-sm"><Link className="text-indigo-500 font-semibold hover:underline">Forgot password?</Link>
-              </label>
-
-              <button onClick={ShowPassWord} className="btn btn-ghost btn-xs absolute right-3 top-8 text-lg">
-                {show ? <FaEyeSlash /> : <FaEye />}
-              </button>
-            </div>
-
-            {error && <p className="text-xs font-semibold text-red-500 text-center">{error}</p>}
-
-            {/* Submit Button */}
+          {/* Password Field */}
+          <div className="relative">
+            <label htmlFor="password" className="block text-sm mb-1 font-medium text-gray-700">
+              Password
+            </label>
+            <input
+              type={show ? "text" : "password"}
+              id="password"
+              name="password"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              placeholder="Enter password"
+              required
+            />
             <button
-              type="submit"
-              className="w-full py-1 bg-purple-500 text-white font-semibold rounded-full hover:bg-indigo-600 transition duration-300"
+              onClick={handleShowPassword}
+              className="absolute right-3 top-9 text-gray-600"
+              aria-label="Toggle password visibility"
             >
-              Log In
+              {show ? <FaEyeSlash /> : <FaEye />}
             </button>
-          </form>
+            <div className="mt-1">
+              <Link to="#" className="text-xs text-indigo-500 hover:underline">
+                Forgot password?
+              </Link>
+            </div>
+          </div>
 
-          <div className="divider divider-info mt-8">or</div>
+          {/* Error Message */}
+          {error && <p className="text-xs text-center text-red-500 font-semibold">{error}</p>}
 
-          <button onClick={HandleGoogleLogin} className="btn btn-sm rounded-full btn-warning w-full mt-1 mb-5">Log in With Google
-            <img src="https://img.icons8.com/fluency/50/google-logo.png" alt="google-logo" className="w-5 shadow-lg border rounded-full" />
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full py-2 bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 transition duration-300"
+          >
+            Log In
           </button>
+        </form>
 
-          {/* Footer Text */}
-          <p className="text-center text-gray-600 mt-6">
-            Don’t have an account? <Link to='/signUp' className="text-indigo-500 font-semibold hover:underline">Sign Up</Link>
-          </p>
-        </div>
+        <div className="divider mt-8">or</div>
+
+        {/* Google Login */}
+        <button
+          onClick={handleGoogleLogin}
+          className="btn btn-sm w-full rounded-full bg-yellow-400 hover:bg-yellow-500 transition mt-2 flex items-center justify-center gap-2"
+        >
+          <img
+            src="https://img.icons8.com/fluency/50/google-logo.png"
+            alt="Google logo"
+            className="w-5 h-5"
+          />
+          Log in With Google
+        </button>
+
+        {/* Footer Text */}
+        <p className="text-center text-sm text-gray-600 mt-6">
+          Don’t have an account?{" "}
+          <Link to="/signUp" className="text-indigo-500 font-semibold hover:underline">
+            Sign Up
+          </Link>
+        </p>
       </div>
-
-      <Footer></Footer>
     </div>
   );
 };

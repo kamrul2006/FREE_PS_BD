@@ -14,6 +14,7 @@ import ErrorPage from './Fixed_Components/ErrorPage';
 import HomeLayouts from './Layouts/HomeLayouts';
 import AuthProvider from './Providers/AuthProvider';
 import SignUpSection from './Auth/SignUp';
+import LoginPage from './Auth/Login';
 
 
 const router = createBrowserRouter([
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/Signup",
         element: <SignUpSection />
+      },
+      {
+        path: "/Login",
+        element: <LoginPage />
       },
     ]
   },
