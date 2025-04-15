@@ -3,6 +3,7 @@ import Banner from '../Home/Banner'
 import OurMission from '../Home/OurMission'
 import FeaturedStories from '../Home/FeaturedStories'
 import AnimatedStats from '../Home/AnimatedState'
+import NewsletterSignup from '../Home/NewsletterSignup'
 
 export default class HomeLayouts extends Component {
     render() {
@@ -15,6 +16,8 @@ export default class HomeLayouts extends Component {
                 <FeaturedStories />
 
                 <AnimatedStats />
+
+                <NewsletterSignup />
             </div>
         )
     }
