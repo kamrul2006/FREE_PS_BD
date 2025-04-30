@@ -11,7 +11,7 @@ export default function Banner() {
                         `url(${'https://png.pngtree.com/thumb_back/fh260/background/20240717/pngtree-palestine-s-dream-4k-pc-background-image_16016746.jpg'})`, // Replace with your preferred image
                 }}
             >
-                <div className="absolute inset-0 bg-black/40"></div>
+                <div className="absolute inset-0 bg-black/70"></div>
             </div>
 
             {/* Content */}

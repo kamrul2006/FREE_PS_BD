@@ -73,7 +73,7 @@ const LoginPage = () => {
               ref={emailRef}
               id="email"
               name="email"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full text-black px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
               placeholder="Enter your email"
               required
             />
@@ -88,7 +88,7 @@ const LoginPage = () => {
               type={show ? "text" : "password"}
               id="password"
               name="password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              className="w-full px-4 py-2 border text-black border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
               placeholder="Enter password"
               required
             />
