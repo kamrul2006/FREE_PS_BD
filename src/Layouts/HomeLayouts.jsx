@@ -5,6 +5,7 @@ import FeaturedStories from '../Home/FeaturedStories'
 import AnimatedStats from '../Home/AnimatedState'
 import NewsletterSignup from '../Home/NewsletterSignup'
 import Gallery from '../Home/Gallery'
+import BoycottSection from '../Home/BoycottSection'
 
 export default class HomeLayouts extends Component {
     render() {
@@ -13,6 +14,8 @@ export default class HomeLayouts extends Component {
                 <Banner />
 
                 <OurMission />
+
+                <BoycottSection />
 
                 <Gallery />
 

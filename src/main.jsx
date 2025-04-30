@@ -59,8 +59,3 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-{/* <StrictMode>
-<AuthProvider>
-  <RouterProvider router={router}></RouterProvider>
-</AuthProvider>
-</StrictMode>, */}
