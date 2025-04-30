@@ -6,6 +6,7 @@ export default function ContactUs() {
         document.title = "FreePalestine-BD | Contact Us";
     }, []);
 
+    
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-950 to-gray-900 text-gray-200 pt-24 pb-16 px-4 md:px-12">
             {/* Header */}
