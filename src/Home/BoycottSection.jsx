@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import cc from "../assets/bcc.png";
 
 export default function BoycottSection() {
@@ -67,9 +68,9 @@ export default function BoycottSection() {
                     <p className="text-gray-300 text-md mb-5 font-medium tracking-wide">
                         ✊ Together, we can raise awareness and promote justice.
                     </p>
-                    <button className="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 px-6 py-3 text-white rounded-full font-semibold tracking-wider transition shadow-md hover:shadow-red-500/40">
+                    <Link to={"/boycott"} className="bg-gradient-to-r from-red-600 to-red-800 hover:from-red-700 hover:to-red-900 px-6 py-3 text-white rounded-full font-semibold tracking-wider transition shadow-md hover:shadow-red-500/40">
                         Learn More & Take Action
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section>
