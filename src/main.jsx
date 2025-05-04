@@ -18,6 +18,7 @@ import LoginPage from './Auth/Login';
 import AboutUs from './About us/AboutUS';
 import ContactUs from './Contuct us/ContactUs';
 import Boycott_Section from './Boycott/Boycott';
+import SupportUs from './Support/SupportUS';
 
 
 const router = createBrowserRouter([
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactUs />
+      },
+      {
+        path: "/support",
+        element: <SupportUs />
       },
       {
         path: "/boycott",
