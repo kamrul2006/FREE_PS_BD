@@ -19,6 +19,7 @@ import AboutUs from './About us/AboutUS';
 import ContactUs from './Contuct us/ContactUs';
 import Boycott_Section from './Boycott/Boycott';
 import SupportUs from './Support/SupportUS';
+import PrivetRout from './Privet/Privetrought';
 
 
 const router = createBrowserRouter([
@@ -49,11 +50,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/support",
-        element: <SupportUs />
+        element: <PrivetRout><SupportUs /></PrivetRout>
       },
       {
         path: "/boycott",
-        element: <Boycott_Section />
+        element: <PrivetRout><Boycott_Section /></PrivetRout>
       },
     ]
   },
